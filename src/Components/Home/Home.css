@@ -1,0 +1,250 @@
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.home header{
+    width: 100%;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.home header .logo{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+}
+
+.home header .logo img{
+    width: 70px;
+    object-fit: cover;
+}
+
+.home header .logo h1{
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--mainColor);
+}
+
+.home .hero{
+    padding: 20px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bgColorNav);
+}
+.home .hero .left{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .5rem;
+    flex-direction: column;
+}
+.home .hero .left h3{
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--textColor);
+    line-height: 40px;
+}
+
+.home .hero .left p{
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--textColor);
+}
+.home header button{
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    margin-top: 0;
+    border-radius: 5px;
+    box-shadow: none;
+    color: var(--mainColor);
+    background-color: transparent;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+}
+.home header button:hover{
+    color: var(--bgColor);
+    background-color: var(--mainColor);
+}
+.home button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: var(--mainColor);
+    color: var(--bgColor);
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+
+}
+.home button:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.home .hero .right{
+    width: 50%;
+    overflow: hidden;
+}
+.home .hero .right img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.home footer {
+    background-color: var(--bgColorNav);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home footer .cards{
+    padding: 50px 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home footer .card{
+    width: calc(calc(100% - 2rem) / 3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.home footer .card img{
+    width: 50px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.home footer .card h3{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--textColor);
+}
+.home footer .card p{
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--textColor);
+}
+
+.home footer .copyright{
+    width: 100%;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainColor);
+}
+
+.home footer .copyright p{
+    color: var(--bgColor);
+    text-align: center;
+    font-size: .9rem;
+    font-weight: 200;
+}
+
+.home .watchVideo{
+    background-color: var(--bgColor);
+    flex-direction: row-reverse;
+    .btns{
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.home .watchVideo button{
+    border-radius: 5px;
+}
+.home .watchVideo button:last-child{
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--mainColor);
+}
+
+/* Responsive */
+
+/* Tablet View */
+@media screen and (max-width:999px) {
+    .home .hero{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .home .hero .left,.home .hero .right{
+        width: 100%;
+    }
+    .home footer .card h3 {
+        font-size: 1rem;
+    }
+    .home footer .card p {
+        font-size: .7rem;
+    }
+}
+
+/* Mobile View */
+@media screen and (max-width:599px) {
+    .home header .logo{
+        gap: .5rem;
+    }
+    .home header .logo img {
+        width: 50px;
+    }
+    .home header .logo h1 {
+        font-size: 1rem;
+    }
+    .home header button {
+        display: none;
+    }
+    .home .hero .left h3 {
+        font-size: 1.2rem;
+        line-height: normal;
+    }
+    .home .hero .left p {
+        font-size: .6rem;
+    }
+    .home button {
+        margin-top: 0;
+        padding: 5px 10px;
+        font-size: .8rem;
+    }
+    .home .watchVideo {
+        min-height: normal;
+    }
+    .home .watchVideo button {
+        border-radius: 5px;
+        font-size: .7rem;
+    }
+    .home footer .cards {
+        flex-direction: column;
+        .card{
+            width: 100%;
+            align-items: center;
+        }
+    }
+    .home footer .card h3,.home footer .card p {
+        text-align: center;
+    }
+    .home footer .copyright p {
+       font-size: .6rem;
+    }
+}
