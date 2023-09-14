@@ -1,0 +1,258 @@
+.cv{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.cv > .left{
+    width: 30%;
+    background-color: #211858;
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.cv >.right{
+    width: 70%;
+    background-color: var(--bgColor);
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.cv .box{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.cv .left .box:first-child{
+    align-items: center;
+    border-bottom: 1px solid #b5b5b5;
+    padding-bottom: 10px;
+}
+.cv .box img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cv .box h2{
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--bgColor);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cv .box h3{
+    font-size: .8rem;
+    font-weight: 800;
+    color: var(--bgColor);
+    text-transform: uppercase;
+    text-align: center;
+}
+.cv .left .box:first-child h3{
+    font-weight: 400;
+}
+
+.cv .box .cards{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+.cv .box .cards .link{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .2rem;
+    font-size: .7rem;
+    color: var(--mainColor);
+}
+
+.cv .box .cards .link h3{
+    font-size: .6rem;
+    font-weight: 400;
+    color: var(--bgColor);
+    text-transform: none;
+}
+
+.cv .box .cards .education{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cv .box .cards .education h4{
+    font-size: .6rem;
+    font-weight: 700;
+    color: var(--mainColor);
+    text-transform: capitalize;
+}
+.cv .box .cards .education p{
+    font-size: .7rem;
+    font-weight: 700;
+    color: var(--bgColor);
+    text-transform: capitalize;
+    word-break: break-all;
+}
+.cv .box .cards .education h5{
+    font-size: .7rem;
+    font-weight: 400;
+    color: var(--bgColor);
+    text-transform: capitalize;
+}
+
+.cv .box .cards .language{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cv .box .cards .language h4{
+    font-size: .6rem;
+    font-weight: 500;
+    color: var(--bgColor);
+    text-transform: capitalize;
+}
+
+.cv .box .cards .language .progress{
+    width: 100%;
+    height: 5px;
+    background-color: #b5b5b5;
+    position: relative;
+}
+
+.cv .box .cards .language .progress span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--mainColor);
+}
+
+.cv .right .box h3{
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--textColor);
+}
+.cv .box p{
+    font-size: .6rem;
+    font-weight: 400;
+    color: var(--textColor);
+    text-transform: capitalize;
+}
+
+.cv .box .cards .experience{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.cv .box .cards .experience .left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 30%;
+}
+.cv .box .cards .experience .right{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+}
+
+.cv .box .cards .experience .left h3{
+    font-size: .6rem;
+
+    font-weight: 700;
+    color: #b5b5b5;
+    text-transform: uppercase;
+}
+
+.cv .box .cards .experience .right h3{
+    font-size: .6rem;
+    font-weight: 700;
+    color: var(--mainColor);
+    text-transform: uppercase;
+}
+.cv .box .cards .experience .right p{
+    font-size: .5rem;
+    font-weight: 400;
+    color: var(--textColor);
+    text-transform: capitalize;
+}
+.cv .box .cards .skills{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+.cv .box .cards .skills h4{
+    color: var(--textColor);
+    text-transform: uppercase;
+    width: 30%;
+}
+.cv .box .cards .skills .progress{
+    width: 70%;
+}
+
+.cv .box .interests{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.cv .box .cards .interest{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: .5rem;
+    font-size: .7rem;
+    color: var(--mainColor);
+}
+
+.cv .box .cards .interest h4{
+    font-size: .7rem;
+    font-weight: 500;
+    color: var(--textColor);
+    text-transform: capitalize;
+}
+
+/* Responsive */
+
+/* Tablet View */
+@media screen and (max-width:999px) {
+    
+}
+
+/* Mobile View */
+@media screen and (max-width:599px) {
+    
+}

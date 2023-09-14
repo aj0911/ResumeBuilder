@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 100%;
 }
-.home header{
+header{
     width: 100%;
     padding: 10px 5%;
     display: flex;
@@ -13,19 +13,19 @@
     align-items: center;
     gap: 1rem;
 }
-.home header .logo{
+ header .logo{
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
     align-items: center;
 }
 
-.home header .logo img{
+ header .logo img{
     width: 70px;
     object-fit: cover;
 }
 
-.home header .logo h1{
+ header .logo h1{
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -203,13 +203,13 @@
 
 /* Mobile View */
 @media screen and (max-width:599px) {
-    .home header .logo{
+     header .logo{
         gap: .5rem;
     }
-    .home header .logo img {
+     header .logo img {
         width: 50px;
     }
-    .home header .logo h1 {
+     header .logo h1 {
         font-size: 1rem;
     }
     .home header button {
