@@ -1,6 +1,12 @@
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import './Resume.css'
 import CV from '../CV/CV';
+import Profile from './Profile';
+import Contact from './Contact';
+import Education from './Education';
+import Experience from './Experience';
+import Skills from './Skills';
+import Others from './Others';
 
 const Resume = () => {
   const fields = [
@@ -11,7 +17,10 @@ const Resume = () => {
     'Skills',
     'Others'
   ]
-  const [active,setActive] = useState(0);
+  const [active,setActive] = useState(2);
+  const [profile,setProfile] = useState({});
+  const [contact,setContact] = useState({});
+  const [education,setEducation] = useState({});
   return (
     <div className="resume">
         <header>
@@ -29,11 +38,22 @@ const Resume = () => {
         </header>
         <div className="box">
           <div className="left">
-
+              {
+                (()=>{
+                  switch(active){
+                    case 0:return <Profile profile={profile} setProfile={setProfile} setActive={setActive}/>
+                    case 1:return <Contact contact={contact} setContact={setContact} setActive={setActive}/>
+                    case 2:return <Education education={education} setEducation={setEducation} setActive={setActive}/>
+                    case 3:return <Experience/>
+                    case 4:return <Skills/>
+                    case 5:return <Others/>
+                  }
+                })()
+              }
           </div>
           <div className="right">
             <div className="cv">
-              <CV/>
+              <CV profile={profile} contactData ={contact} educationData = {education}/>
             </div>
           </div>
         </div>

@@ -49,9 +49,11 @@
 
 .resume .box > .left{
     width: 50%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--bgColorNav);
     padding-top: 80px;
+    overflow-x: hidden;
+    overflow-y:scroll;
 }
 .resume .box > .right{
     width: 50%;

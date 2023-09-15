@@ -5,32 +5,32 @@ import { BsGlobe } from 'react-icons/bs'
 import { MdLocationOn } from 'react-icons/md'
 import { interests } from '../Helper/Helper'
 
-const CV = () => {
+const CV = ({profile,contactData,educationData}) => {
 
     const contacts = [
         {
-            icon:<AiFillPhone/>,
-            val:'+1 234 5678 900'
+            icon:(contactData.phoneNumber)?<AiFillPhone/>:'',
+            val:contactData.phoneNumber
         },
         {
-            icon:<AiFillMail/>,
-            val:'johndoe@gmail.com'
+            icon:(!contactData.email)?'':<AiFillMail/>,
+            val:contactData.email
         },
         {
-            icon:<BsGlobe/>,
-            val:'www.mywebsite.com'
+            icon:(!contactData.website)?'':<BsGlobe/>,
+            val:contactData.website
         },
         {
-            icon:<AiFillLinkedin/>,
-            val:'www.linkedin.com/me'
+            icon:(!contactData.linkedIn)?'':<AiFillLinkedin/>,
+            val:contactData.linkedIn
         },{
-            icon:<MdLocationOn/>,
-            val:'Delhi, India'
+            icon:(!contactData.state)?'':<MdLocationOn/>,
+            val:`${(!contactData.state)?'':contactData.state}, ${(!contactData.country)?'':contactData.country}`
         },
     ]
     const educations=[
         {
-            time:'2010 - 2013',
+            time:`${educationData.startingDate || ''} - ${educationData.endingDate || ''}`,
             name:'Master Degree in Computer Science',
             university:'University Name'
         },
@@ -111,9 +111,9 @@ const CV = () => {
     <div className="cv">
         <div className="left">
             <div className="box">
-                <img src={require('../../Assets/Images/default.jpg')} alt="" />
-                <h2>Abhinav Jha</h2>
-                <h3>Web Developer</h3>
+                <img src={profile.img || require('../../Assets/Images/default.jpg')} alt="" />
+                <h2>{profile.fName}</h2>
+                <h3>{profile.jobTitle}</h3>
             </div>
             <div className="box">
                 <h3>Contact Info</h3>
@@ -132,11 +132,11 @@ const CV = () => {
                 <h3>Education</h3>
                 <div className="cards">
                     {
-                        educations.map((e,i)=>(
+                        Object.values(educationData).map((e,i)=>(
                             <div key={i} className="education">
-                                <h4>{e.time}</h4>
-                                <p>{e.name}</p>
-                                <h5>{e.university}</h5>
+                                <h4>{`${e.startingDate || '' } ${(e.startingDate)?'-':''} ${e.endingDate || ''}`}</h4>
+                                <p>{e.degreeName}</p>
+                                <h5>{e.universityName}</h5>
                             </div>
                         ))
                     }
@@ -159,7 +159,7 @@ const CV = () => {
         <div className="right">
             <div className="box">
                 <h3>Profile</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti commodi necessitatibus veniam odit ad laboriosam itaque, praesentium iste vel sapiente est aliquam molestiae? Labore impedit consequatur porro asperiores quis fugiat blanditiis dolorem in quas aperiam quos a corrupti ducimus placeat veniam, qui molestiae sequi nulla deleniti dolorum ipsa molestias tempora eum. Pariatur nihil asperiores repellat cum beatae laboriosam nam assumenda molestiae error, placeat eveniet! A libero ad recusandae est commodi porro ex dolor optio perferendis corporis? Exercitationem modi ducimus similique officiis adipisci et possimus aut, at, ullam sapiente dolor sint praesentium sequi corporis accusantium porro accusamus? Recusandae amet cum saepe.</p>
+                <p>{profile.description}</p>
             </div>
             <div className="box">
                 <h3>Experience</h3>
@@ -208,6 +208,7 @@ const CV = () => {
             </div>
         </div>
     </div>
+
   )
 }
 
