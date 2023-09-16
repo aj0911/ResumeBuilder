@@ -8,7 +8,7 @@ const Education = ({setActive,setEducation,education}) => {
       setActive(2);
   }
 
-  const [edu, setEdu] = useState(['0'])
+  const [count,setCount] = useState(0);
 
 return (
   <>
@@ -18,28 +18,28 @@ return (
       </div>
       <form onSubmit={(e)=>handleNext(e)}>
           {
-            edu.map((f,i)=>(
+            Object.values(education).map((_,i)=>(
               <div key={i} className="inputs">
                 <div className="formControl">
                     <h4>Starting Date</h4>
-                    <input   onChange={(e)=>setEducation({...education,f:{...education[f],startingDate:e.target.value}})} type="date" required />
+                    <input value={education[i].startingDate}  onChange={(e)=>setEducation({...education,[i]:{...education[i],startingDate:e.target.value}})} type="date" required />
                 </div>
                 <div className="formControl">
                     <h4>Ending Date</h4>
-                    <input   onChange={(e)=>setEducation({...education,f:{...education[f],endingDate:e.target.value}})} type="date" required />
+                    <input value={education[i].endingDate}  onChange={(e)=>setEducation({...education,[i]:{...education[i],endingDate:e.target.value}})} type="date" required />
                 </div>
                 <div className="formControl">
                     <h4>Degree Name</h4>
-                    <input  onChange={(e)=>setEducation({...education,f:{...education[f],degreeName:e.target.value}})} type="text" required />
+                    <input value={education[i].degreeName} onChange={(e)=>setEducation({...education,[i]:{...education[i],degreeName:e.target.value}})} type="text" required />
                 </div>
                 <div className="formControl">
                     <h4>University Name</h4>
-                    <input  onChange={(e)=>setEducation({...education,f:{...education[f],universityName:e.target.value}})} type="text" required />
+                    <input value={education[i].universityName} onChange={(e)=>setEducation({...education,[i]:{...education[i],universityName:e.target.value}})} type="text" required />
                 </div>
               </div>  
             ))
           }
-          <button onClick={()=>setEdu([...edu,(edu.length+1).toString()])}>Add More</button>
+          <button onClick={()=>{setEducation({...education,[count]:{}});setCount(count+1)}}>{(count===0)?'Add Education':'Add More'}</button>
           <div className="btns">
               <button onClick={()=>setActive(1)}>Back</button>
               <input type="submit" value={'Next'} />
