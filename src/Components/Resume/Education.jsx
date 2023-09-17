@@ -6,7 +6,7 @@ const Education = ({setActive,setEducation,education}) => {
 
   const handleNext = (e)=>{
       e.preventDefault();
-      setActive(2);
+      setActive(3);
   }
 
   const [count,setCount] = useState(1);
@@ -26,7 +26,7 @@ return (
               <div key={i} className="inputs">
                 {
                   (i<1)?'':
-                  <button onClick={removeEdu}><AiFillMinusCircle/></button>
+                  <button type='button' onClick={removeEdu}><AiFillMinusCircle/></button>
                 }
                 <div className="formControl">
                     <h4>Starting Date</h4>
@@ -49,7 +49,7 @@ return (
           }
           <button onClick={()=>{setCount(count+1)}}><AiFillPlusCircle/></button>
           <div className="btns">
-              <button onClick={()=>setActive(1)}>Back</button>
+              <button type='button' onClick={()=>setActive(1)}>Back</button>
               <input type="submit" value={'Next'} />
           </div>
       </form>

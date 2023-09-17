@@ -41,7 +41,7 @@ const Contact = ({setActive,setContact,contact}) => {
                 <input value={contact.country} onChange={(e)=>setContact({...contact,country:e.target.value})} type="text" />
             </div>
             <div className="btns">
-                <button onClick={()=>setActive(0)}>Back</button>
+                <button type='button' onClick={()=>setActive(0)}>Back</button>
                 <input type="submit" value={'Next'} />
             </div>
         </form>

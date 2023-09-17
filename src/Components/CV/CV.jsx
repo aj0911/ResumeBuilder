@@ -5,7 +5,7 @@ import { BsGlobe } from 'react-icons/bs'
 import { MdLocationOn } from 'react-icons/md'
 import { interests } from '../Helper/Helper'
 
-const CV = ({profile,contactData,educationData}) => {
+const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
 
     const contacts = [
         {
@@ -25,7 +25,7 @@ const CV = ({profile,contactData,educationData}) => {
             val:contactData.linkedIn
         },{
             icon:(!contactData.state)?'':<MdLocationOn/>,
-            val:`${(!contactData.state)?'':contactData.state}, ${(!contactData.country)?'':contactData.country}`
+            val:`${(!contactData.state)?'':contactData.state}${(!contactData.country)?'':','} ${(!contactData.country)?'':contactData.country}`
         },
     ]
     const educations=[
@@ -134,7 +134,7 @@ const CV = ({profile,contactData,educationData}) => {
                     {
                         Object.values(educationData).map((e,i)=>(
                             <div key={i} className="education">
-                                <h4>{`${e.startingDate || '' } ${(e.startingDate)?'-':''} ${e.endingDate || ''}`}</h4>
+                                <h4>{`${(e.startingDate)?e.startingDate.slice(0,4):'' } ${(e.startingDate)?'-':''} ${(e.endingDate)?e.endingDate.slice(0,4):''}`}</h4>
                                 <p>{e.degreeName}</p>
                                 <h5>{e.universityName}</h5>
                             </div>
@@ -165,10 +165,10 @@ const CV = ({profile,contactData,educationData}) => {
                 <h3>Experience</h3>
                 <div className="cards">
                     {
-                        experiences.map((e,i)=>(
+                        Object.values(experienceData).map((e,i)=>(
                             <div className="experience" key={i}>
                                 <div className="left">
-                                    <h3>{e.time}</h3>
+                                    <h3>{`${(e.startingDate)?e.startingDate.slice(0,4):'' } ${(e.startingDate)?'-':''} ${(e.endingDate)?e.endingDate.slice(0,4):''}`}</h3>
                                     <h3>{e.companyName}</h3>
                                 </div>
                                 <div className="right">
@@ -184,10 +184,10 @@ const CV = ({profile,contactData,educationData}) => {
                 <h3>Professional Skills</h3>
                 <div className="cards">
                     {
-                        skills.map((e,i)=>(
+                        Object.values(skillsData).map((e,i)=>(
                             <div key={i} className="language skills">
                                 <h4>{e.name}</h4>
-                                <div className="progress"><span style={{width:e.val}}></span></div>
+                                <div className="progress"><span style={{width:(e.val+'%' || '0%')}}></span></div>
                             </div>
                         ))
                     }
