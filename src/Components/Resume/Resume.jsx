@@ -17,12 +17,14 @@ const Resume = () => {
     'Skills',
     'Others'
   ]
-  const [active,setActive] = useState(4);
+  const [active,setActive] = useState(0);
   const [profile,setProfile] = useState({});
   const [contact,setContact] = useState({});
   const [education,setEducation] = useState({});
   const [experience,setExperience] = useState({});
   const [skills,setSkills] = useState({});
+  const [others,setOthers] = useState({});
+  const [interest,setInterest] = useState({});
   return (
     <div className="resume">
         <header>
@@ -48,14 +50,14 @@ const Resume = () => {
                     case 2:return <Education education={education} setEducation={setEducation} setActive={setActive}/>
                     case 3:return <Experience experience={experience} setExperience = {setExperience} setActive={setActive}/>
                     case 4:return <Skills skills={skills} setSkills={setSkills} setActive={setActive}/>
-                    case 5:return <Others/>
+                    case 5:return <Others others={others} interest={interest} setInterest={setInterest} setOthers={setOthers} setActive={setActive}/>
                   }
                 })()
               }
           </div>
           <div className="right">
             <div className="cv">
-              <CV profile={profile} skillsData = {skills} experienceData = {experience} contactData ={contact} educationData = {education}/>
+              <CV profile={profile} interestData = {interest} otherData={others} skillsData = {skills} experienceData = {experience} contactData ={contact} educationData = {education}/>
             </div>
           </div>
         </div>

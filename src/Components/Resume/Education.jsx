@@ -47,7 +47,7 @@ return (
               </div>  
             ))
           }
-          <button onClick={()=>{setCount(count+1)}}><AiFillPlusCircle/></button>
+          <button type='button' onClick={()=>{setCount(count+1)}}><AiFillPlusCircle/></button>
           <div className="btns">
               <button type='button' onClick={()=>setActive(1)}>Back</button>
               <input type="submit" value={'Next'} />

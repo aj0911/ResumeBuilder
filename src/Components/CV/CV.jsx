@@ -5,7 +5,7 @@ import { BsGlobe } from 'react-icons/bs'
 import { MdLocationOn } from 'react-icons/md'
 import { interests } from '../Helper/Helper'
 
-const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
+const CV = ({profile,interestData,contactData,educationData,experienceData,skillsData,otherData}) => {
 
     const contacts = [
         {
@@ -28,84 +28,6 @@ const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
             val:`${(!contactData.state)?'':contactData.state}${(!contactData.country)?'':','} ${(!contactData.country)?'':contactData.country}`
         },
     ]
-    const educations=[
-        {
-            time:`${educationData.startingDate || ''} - ${educationData.endingDate || ''}`,
-            name:'Master Degree in Computer Science',
-            university:'University Name'
-        },
-        {
-            time:'2007 - 2010',
-            name:'Bachelor Degree in Computer Science',
-            university:'University Name'
-        },
-        {
-            time:'1997 - 2007',
-            name:'Matriculation',
-            university:'University Name'
-        },
-    ]
-    const languages = [
-        {
-            name:'English',
-            val:'90%'
-        },
-        {
-            name:'Spanish',
-            val:'45%'
-        },
-        {
-            name:'Hindi',
-            val:'85%'
-        },
-    ]
-    const experiences = [
-        {
-            time:'2019 - Present',
-            designation:'Senior UX Designer',
-            companyName:'Company Name',
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quaerat obcaecatiexplicabo perspiciatis mollitia inventore fugiat veritatis illo maiores eum?`
-        },
-        {
-            time:'2018 - 2019',
-            designation:'UX/UI Designer',
-            companyName:'Company Name',
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quaerat obcaecatiexplicabo perspiciatis mollitia inventore fugiat veritatis illo maiores eum?`
-        },
-        {
-            time:'2014 - 2018',
-            designation:'Junior UX Designer',
-            companyName:'Company Name',
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quaerat obcaecatiexplicabo perspiciatis mollitia inventore fugiat veritatis illo maiores eum?`
-        }
-    ]
-    const skills = [
-        {
-            name:'HTML',
-            val:'90%'
-        },
-        {
-            name:'CSS',
-            val:'95%'
-        },
-        {
-            name:'JAVASCRIPT',
-            val:'65%'
-        },
-        {
-            name:'photoshop',
-            val:'80%'
-        },
-        {
-            name:'illustrator',
-            val:'75%'
-        },
-        {
-            name:'adobe xd',
-            val:'85%'
-        },
-    ]
-    const intrest=[interests.ART,interests.GAMES,interests.MUSIC,interests.SPORTS];
 
   return (
     <div className="cv">
@@ -146,10 +68,13 @@ const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
                 <h3>Languages</h3>
                 <div className="cards">
                     {
-                        languages.map((e,i)=>(
+                        Object.values(otherData).map((e,i)=>(
                             <div key={i} className="language">
                                 <h4>{e.name}</h4>
-                                <div className="progress"><span style={{width:e.val}}></span></div>
+                                {
+                                    (!e.val)?'':
+                                    <div className="progress"><span style={{width:(e.val+'%' || '0%')}}></span></div>
+                                }
                             </div>
                         ))
                     }
@@ -187,7 +112,10 @@ const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
                         Object.values(skillsData).map((e,i)=>(
                             <div key={i} className="language skills">
                                 <h4>{e.name}</h4>
-                                <div className="progress"><span style={{width:(e.val+'%' || '0%')}}></span></div>
+                                {
+                                    (!e.val)?'':
+                                    <div className="progress"><span style={{width:(e.val+'%' || '0%')}}></span></div>
+                                }
                             </div>
                         ))
                     }
@@ -197,12 +125,13 @@ const CV = ({profile,contactData,educationData,experienceData,skillsData}) => {
                 <h3>Interest</h3>
                 <div className="interests cards">
                     {
-                        intrest.map((e,i)=>(
+                        Object.keys(interestData).map((e,i)=>(
+                            (interestData[e])?
                             <div key={i} className="interest">
-                                {e.icon}
-                                <h4>{e.name}</h4>
-                            </div>
-                        ))
+                                {interests[e].icon}
+                                <h4>{interests[e].name}</h4>
+                            </div>:''
+                        )) 
                     }
                 </div>
             </div>

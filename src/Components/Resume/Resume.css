@@ -8,6 +8,7 @@
 .resume header{
     position: fixed;
     background-color: var(--bgColor);
+    z-index: 5;
 }
 .resume header .fields{
     display: flex;
@@ -94,6 +95,6 @@
         font-size: .8rem;
     }
     .resume .box > .right{
-        display:none;
+        /* display:none; */
     }
 }
