@@ -1,0 +1,194 @@
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.heading h3{
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    color: var(--textColor);
+}
+
+.heading p{
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    color: var(--textColor);
+}
+
+.resume .left > form{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.resume .left > form .formControl{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.resume .left > form .formControl h4,.resume .left > form .formControl h3{
+    font-size: .9rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--textColor);
+}
+
+.resume .left > form .formControl input{
+    width: 100%;
+    border: none;
+    color: var(--textColor);
+    padding: 10px;
+    font-size: .9rem;
+    font-weight: 400;
+    background-color:rgb(255, 250, 255);
+    border-radius: 5px;
+}
+.resume .left > form .formControl input:focus,.resume .left > form .formControl textarea:focus{
+    outline-width: 0;
+}
+.resume .left > form .formControl textarea{
+    width: 100%;
+    border: none;
+    color: var(--textColor);
+    padding: 10px;
+    font-size: .9rem;
+    font-weight: 400;
+    background-color:rgb(255, 250, 255);
+    border-radius: 5px;
+    resize: none;
+    height: 100px;
+}
+
+.resume .left > form  input[type="submit"]{
+    padding: 5px 20px;
+    border: none;
+    background-color: var(--mainColor);
+    color: var(--bgColor);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: var(--transition);
+    box-shadow: 2px 20px 20px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+.resume .left > form .btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.resume .left > form  input[type="submit"]:hover{
+    box-shadow: 2px 20px 20px rgba(0, 0, 0, .4);
+    transform: scale(1.05);
+}
+
+.resume .left > form  .btns button{
+    padding: 5px 20px;
+    border: none;
+    background-color: transparent;
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: var(--transition);
+    cursor: pointer;
+    box-shadow: 2px 20px 20px rgba(0, 0, 0, .2);
+}
+
+.resume .left > form  .btns button:hover{
+    color: var(--bgColor);
+    background-color: var(--mainColor);
+    transform: scale(1.05);
+    box-shadow: 2px 20px 20px rgba(0, 0, 0, .4);
+
+}
+
+.resume .left > form .inputs{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.resume .left > form .inputs > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    border: none;
+    color: crimson;
+    font-size: 2rem;
+    
+}
+.resume .left > form > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: var(--mainColor);
+    font-size: 2rem;
+}
+
+.interestForm{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.interestForm .interestsVal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.interestForm h3{
+    font-size: .9rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--textColor);
+}
+
+@media screen and (max-width:599px){
+    .resume .left > form .formControl h4, .resume .left > form .formControl h3 {
+        font-size: .7rem;
+    }
+    .resume .left > form .formControl input {
+        padding: 5px;
+        font-size: .7rem;
+    }
+    .resume .left > form > button ,.resume .left > form .inputs> button{
+        font-size: 1.5rem;
+    }
+    .interestForm h3 {
+        font-size: .7rem;
+    }
+    .resume .left > form {
+        margin-top: 10px;
+    }
+    .resume .left > form .btns button,.resume .left>form .btns input {
+        padding: 3px 10px;
+        font-size: .8rem;
+    }
+    .resume .left > form .formControl textarea {
+        height: 100px;
+    }
+}
