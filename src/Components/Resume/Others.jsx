@@ -1,23 +1,17 @@
 import './Common.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai'
 import { interests } from '../Helper/Helper'
-import jsPDF from 'jspdf'
-import html2canvas from 'html2canvas'
 
 const Others = ({setActive,setOthers,others,setInterest,interest}) => {
 
+  const [print,setPrint] = useState(false);
   const handleNext = (e)=>{
       e.preventDefault();
-      const input = document.querySelector('.cv');
-      html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("cv.pdf");
-        });
+      document.querySelector('.resume .box > .right').style.width = '100%';
+      document.querySelector('.resume .box > .right').style.padding = '0';
+      window.print({Option:{backgroundGraphics:true}});
+      setPrint(!print);
   }
 
   const [count,setCount] = useState(1);
@@ -31,6 +25,11 @@ const Others = ({setActive,setOthers,others,setInterest,interest}) => {
     else
     setInterest({...interest,[e.target.value]:false});
   }
+
+  useEffect(()=>{
+      document.querySelector('.resume .box > .right').style.width = (window.innerWidth<999)?'100%':'50%';
+      document.querySelector('.resume .box > .right').style.padding = '80px 20px 20px 20px';
+  },[print])
 return (
   <>
       <div className="heading">

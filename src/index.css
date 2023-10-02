@@ -34,3 +34,12 @@ html{
 @media screen and (max-width:599px) {
     
 }
+
+@media print{
+    .resume header {
+        display: none;
+    }
+    .resume .box > .left {
+        display: none;
+    }
+}

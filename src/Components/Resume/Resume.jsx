@@ -56,9 +56,7 @@ const Resume = () => {
               }
           </div>
           <div className="right">
-            <div className="cv">
               <CV profile={profile} interestData = {interest} otherData={others} skillsData = {skills} experienceData = {experience} contactData ={contact} educationData = {education}/>
-            </div>
           </div>
         </div>
     </div>
